@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-
     public static void main (String[]args) throws ParseException {
 
         //permitir al usuario introducir libros
@@ -23,7 +22,7 @@ public class Main {
         book.setIsbn(scanner.nextInt());
         System.out.println("Introduce la fecha de publicacion del libro:");
             //Recoger la fecha como texto y convertirla a Date para almacenarla
-            String fechaComoTexto = scanner.nextLine();
+            String fechaComoTexto = scanner.next();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date fecha = sdf.parse(fechaComoTexto);
             book.setPublicationDate(fecha);
@@ -32,7 +31,7 @@ public class Main {
         System.out.println("¿cuantos autores quiere introducir?");
         int numAuthors = scanner.nextInt();
 
-        for (int i = 1 ; i == numAuthors ; i ++){
+        for (int i = 1 ; i <= numAuthors ; i ++){
             System.out.println("Introduce el id del autor:");
             author.setId(scanner.nextInt());
             System.out.println("Introduce el nombre del autor:");
@@ -46,7 +45,7 @@ public class Main {
         //Introducir géneros
         System.out.println("¿cuantos géneros quiere introducir?");
         int numGenres = scanner.nextInt();
-        for (int j = 1 ; j == numGenres ; j++){
+        for (int j = 1 ; j <= numGenres ; j++){
             System.out.println("Introduce el id del genero:");
             genre.setId(scanner.nextInt());
             System.out.println("Introduce el nombre del genero:");
@@ -55,14 +54,6 @@ public class Main {
             genre.setDescription(scanner.next());
             book.addGenre(genre);
         }
-
-
-
-
-
-
-
-
     }
 
 }
