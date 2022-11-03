@@ -45,7 +45,7 @@ public class Main {
         //Introducir géneros
         System.out.println("¿cuantos géneros quiere introducir?");
         int numGenres = scanner.nextInt();
-        for (int j = 1 ; j <= numGenres ; j++){
+        for (int j = 1 ; j <= numGenres ; j++) {
             System.out.println("Introduce el id del genero:");
             genre.setId(scanner.nextInt());
             System.out.println("Introduce el nombre del genero:");
