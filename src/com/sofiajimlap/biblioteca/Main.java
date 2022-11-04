@@ -15,7 +15,7 @@ public class Main {
         Scanner scanner = new Scanner (System.in);
 
         int opcionMenu;
-        System.out.println("¿Qué desea hacer? \n 1. Introducir un libro \n 2. Realizar un prestamo \n 3.Salir");
+        System.out.println("¿Qué desea hacer? \n 1. Introducir un libro \n 2. Realizar un prestamo \n 3. Salir");
         opcionMenu = scanner.nextInt();
 
         while (opcionMenu != 3) {
@@ -125,21 +125,24 @@ public class Main {
                 int idBookActual;
                 int k = 0;
                 boolean encontrada = false;
+                System.out.println("Tamaño del array = " + books.size());
 
                 while (encontrada == false) {
                     while (encontrada == false || k < books.size()) {
                         idBookActual = books.get(k).getId();
                         if (idBookIntroducido == idBookActual) {
                             encontrada = true;
+                            System.out.println ("k = " + k + " ; idActual =" + idBookActual);
                         } else {
                             k++;
+                            System.out.println("k =" + k);
                         }
                     }
                     System.out.println("Numero introducido no encontrado");
                     System.out.println("Introduce el numero del libro");
                     idBookIntroducido = scanner.nextInt();
                 }
-
+                System.out.println("Estoy fuera del while");
                 loan.setBook(books.get(k));
 
                 //Introducir fecha inicio
@@ -162,7 +165,7 @@ public class Main {
                 System.out.println("Ha introducido una opcion invalida");
             }
 
-            System.out.println("¿Qué desea hacer? \n 1. Introducir un libro \n 2. Realizar un prestamo \n 3.Salir");
+            System.out.println("¿Qué desea hacer? \n 1. Introducir un libro \n 2. Realizar un prestamo \n 3. Salir");
             opcionMenu = scanner.nextInt();
         }
     }
