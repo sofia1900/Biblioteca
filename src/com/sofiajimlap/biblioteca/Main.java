@@ -87,6 +87,31 @@ public class Main {
 
             //Identificar usuario
 
+            for (int usuario = 0 ; usuario< users.size() ; usuario ++){
+                System.out.println(users.get(usuario).getId() + ". " + users.get(usuario).getName());
+            }
+            System.out.println("Introduce el numero del usuario:");
+            int idUserIntroducido = scanner.nextInt();
+
+            int idUserActual;
+            int p = 0;
+            boolean encontrado = false;
+
+            while (encontrado == false) {
+                while (p < books.size() || encontrado == false) {
+                    idUserActual = books.get(p).getId();
+                    if (idUserIntroducido == idUserActual) {
+                        encontrado = true;
+                    } else {
+                        p++;
+                    }
+                }
+                System.out.println("Numero introducido no encontrado");
+                System.out.println("Introduce el numero del usuario");
+                idUserIntroducido = scanner.nextInt();
+            }
+
+            loan.setBook(books.get(p));
 
             //Elegir libro
 
@@ -98,23 +123,22 @@ public class Main {
 
             int idBookActual;
             int k = 0;
-            boolean encontrado = false;
-
-            while ( encontrado == false || k<books.size()){
-                idBookActual = books.get(k).getId();
-               if (idBookIntroducido == idBookActual){
-                   encontrado = true;
-               }else{
-                   k ++;
-               }
+            encontrado = false;
+            
+            while (encontrado == false) {
+                while (encontrado == false || k < books.size()) {
+                    idBookActual = books.get(k).getId();
+                    if (idBookIntroducido == idBookActual) {
+                        encontrado = true;
+                    } else {
+                        k++;
+                    }
+                }
+                System.out.println("Numero introducido no encontrado");
+                System.out.println("Introduce el numero del libro");
+                idBookIntroducido = scanner.nextInt();
             }
-
-            if (encontrado == true){
-                loan.setBook(books.get(k));
-            }else{
-                System.out.println("Libro no encontrado");
-            }
-
+            loan.setBook(books.get(k));
 
             //Introducir fecha inicio
             System.out.println("Introduce la fecha de inicio de la reserva:");
