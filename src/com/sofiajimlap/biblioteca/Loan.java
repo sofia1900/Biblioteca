@@ -30,6 +30,6 @@ public class Loan {
         public void setUser(User user) {this.user = user;}
 
         public Book getBook() {return book;}
-        public void serBook(Book book) {this.book = book;}
+        public void setBook(Book book) {this.book = book;}
 
 }
