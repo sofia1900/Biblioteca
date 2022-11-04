@@ -2,18 +2,21 @@ package com.sofiajimlap.biblioteca;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-    public static void main (String[]args) throws ParseException {
+    public static void main(String[] args) throws ParseException {
+
+        Scanner scanner = new Scanner (System.in);
 
         //permitir al usuario introducir libros
         Book book = new Book();
         Genre genre = new Genre();
         Author author = new Author();
-        Scanner scanner = new Scanner(System.in);
 
+        //Introducir libro
         System.out.println("Introduce el id del libro:");
         book.setId(scanner.nextInt());
         System.out.println("Introduce el titulo del libro:");
@@ -31,29 +34,37 @@ public class Main {
         System.out.println("¿cuantos autores quiere introducir?");
         int numAuthors = scanner.nextInt();
 
-        for (int i = 1 ; i <= numAuthors ; i ++){
+        for (int i = 1; i <= numAuthors; i++) {
             System.out.println("Introduce el id del autor:");
             author.setId(scanner.nextInt());
             System.out.println("Introduce el nombre del autor:");
             author.setName(scanner.next());
             System.out.println("Introduce los apellidos del autor:");
             author.setSurname(scanner.next());
-            //resto de atributos
+            System.out.println("Introduce la fecha de nacimiento del autor:");
+                //Recoger la fecha como texto y convertirla a Date para almacenarla
+                fechaComoTexto = scanner.next();
+                sdf = new SimpleDateFormat("dd/MM/yyyy");
+                fecha = sdf.parse(fechaComoTexto);
+                author.setBirthday(fecha);
+            System.out.println("Introduce el lugar de nacimiento del autor:");
+            author.setPlaceBrith(scanner.next());
+
             book.addAuthor(author);
         }
 
         //Introducir géneros
         System.out.println("¿cuantos géneros quiere introducir?");
         int numGenres = scanner.nextInt();
-        for (int j = 1 ; j <= numGenres ; j++) {
+        for (int j = 1; j <= numGenres; j++) {
             System.out.println("Introduce el id del genero:");
             genre.setId(scanner.nextInt());
             System.out.println("Introduce el nombre del genero:");
             genre.setName(scanner.next());
             System.out.println("Introduce la descripcion del genero:");
             genre.setDescription(scanner.next());
+
             book.addGenre(genre);
         }
     }
-
 }
