@@ -85,7 +85,7 @@ public class Main {
                 System.out.println("Introduce el id de la reserva:");
                 loan.setId(scanner.nextInt());
 
-                //Identificar usuario
+                //Identificar usuario ; Comentado porque no está hecha la opcion de introducir un usuario
                 /*
                 for (int usuario = 0; usuario < users.size(); usuario++) {
                     System.out.println(users.get(usuario).getId() + ". " + users.get(usuario).getName());
@@ -110,15 +110,15 @@ public class Main {
                     System.out.println("Introduce el numero del usuario");
                     idUserIntroducido = scanner.nextInt();
                 }
-
                 loan.setBook(books.get(p));
                 */
+
                 //Elegir libro
                 System.out.println("Libros actuales:");
                 for (int libro = 0; libro < books.size(); libro++) {
                     System.out.println(books.get(libro).getId() + ". " + books.get(libro).getTitle());
                 }
-
+                System.out.println("");
                 System.out.println("Introduce el numero del libro:");
                 int idBookIntroducido = scanner.nextInt();
 
@@ -144,19 +144,19 @@ public class Main {
 
                 //Introducir fecha inicio
                 System.out.println("Introduce la fecha de inicio de la reserva:");
-                //Recoger la fecha como texto y convertirla a Date para almacenarla
-                String fechaComoTexto = scanner.next();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                Date fecha = sdf.parse(fechaComoTexto);
-                loan.setStartDate(fecha);
+                    //Recoger la fecha como texto y convertirla a Date para almacenarla
+                    String fechaComoTexto = scanner.next();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha = sdf.parse(fechaComoTexto);
+                    loan.setStartDate(fecha);
 
                 //Introducir fecha fin
                 System.out.println("Introducir la fecha de finalizacion de la reserva:");
-                //Recoger la fecha como texto y convertirla a Date para almacenarla
-                fechaComoTexto = scanner.next();
-                sdf = new SimpleDateFormat("dd/MM/yyyy");
-                fecha = sdf.parse(fechaComoTexto);
-                loan.setStopDate(fecha);
+                    //Recoger la fecha como texto y convertirla a Date para almacenarla
+                    fechaComoTexto = scanner.next();
+                    sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    fecha = sdf.parse(fechaComoTexto);
+                    loan.setStopDate(fecha);
 
             } else {
                 System.out.println("Ha introducido una opcion invalida");
