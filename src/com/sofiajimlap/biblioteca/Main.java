@@ -26,7 +26,7 @@ public class Main {
                 Author author = new Author();
 
                 //Introducir libro
-                System.out.println("Introduce el id del libro:");
+                System.out.println("Introduce el id del libro:");  //Completar con un control para que no se introduzca un libro con un id ya utilizado
                 book.setId(scanner.nextInt());
                 System.out.println("Introduce el titulo del libro:");
                 book.setTitle(scanner.next());
