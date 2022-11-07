@@ -3,7 +3,7 @@ package com.sofiajimlap.biblioteca;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Book {
+public class Book implements Books {
 
     //Atributos
 
@@ -22,11 +22,6 @@ public class Book {
         public Integer getId(){return id;}
         public void setId (Integer id){this.id = id;}
 
-        public String getTitle(){return title;}
-        public void setTitle (String title){this.title = title;}
-
-        public Integer getIsbn (){return isbn;}
-        public void setIsbn (Integer isbn){this.isbn = isbn;}
 
         public Date getPublicationDate() {return publicationDate;}
         public void setPublicationDate (Date publicationDate){this.publicationDate = publicationDate;}
@@ -37,4 +32,23 @@ public class Book {
         public void addGenre (Genre genre) {this.genres.add(genre);}
         public ArrayList<Genre> setGenre() {return this.genres;}
 
+        @Override
+        public void setIsbn(Integer isbn) {
+                this.isbn = isbn;
+        }
+
+        @Override
+        public Integer getIsbn() {
+                return isbn;
+        }
+
+        @Override
+        public void setTitle(String title) {
+                this.title = title;
+        }
+
+        @Override
+        public String setTitle() {
+                return title;
+        }
 }
