@@ -7,10 +7,10 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-
-    static ArrayList<Book> books = new ArrayList<>();
-    static ArrayList<User> users = new ArrayList<>();
     public static void main(String[] args) throws ParseException {
+
+        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
 
         Scanner scanner = new Scanner (System.in);
 
@@ -97,18 +97,19 @@ public class Main {
                 int p = 0;
                 boolean encontrado = false;
 
-                while (encontrado == false) {
-                    while (p < books.size() || encontrado == false) {
+                while (encontrado) {
+                    while (p < books.size()) {
                         idUserActual = books.get(p).getId();
                         if (idUserIntroducido == idUserActual) {
                             encontrado = true;
-                        } else {
-                            p++;
                         }
+                        p++;
                     }
-                    System.out.println("Numero introducido no encontrado");
-                    System.out.println("Introduce el numero del usuario");
-                    idUserIntroducido = scanner.nextInt();
+                    if (encontrado){
+                        System.out.println("Numero introducido no encontrado");
+                        System.out.println("Introduce el numero del usuario");
+                        idUserIntroducido = scanner.nextInt();
+                    }
                 }
                 loan.setBook(books.get(p));
                 */
@@ -124,25 +125,22 @@ public class Main {
 
                 int idBookActual;
                 int k = 0;
-                boolean encontrada = false;
-                System.out.println("Tamaño del array = " + books.size());
+                boolean ok = false;
 
-                while (encontrada == false) {
-                    while (encontrada == false || k < books.size()) {
+                while (ok) {
+                    while (k < books.size()) {
                         idBookActual = books.get(k).getId();
                         if (idBookIntroducido == idBookActual) {
-                            encontrada = true;
-                            System.out.println ("k = " + k + " ; idActual =" + idBookActual);
-                        } else {
-                            k++;
-                            System.out.println("k =" + k);
+                            ok = true;
                         }
+                        k++;
                     }
-                    System.out.println("Numero introducido no encontrado");
-                    System.out.println("Introduce el numero del libro");
-                    idBookIntroducido = scanner.nextInt();
+                    if (ok) {
+                        System.out.println("Numero introducido no encontrado");
+                        System.out.println("Introduce el numero del libro");
+                        idBookIntroducido = scanner.nextInt();
+                    }
                 }
-                System.out.println("Estoy fuera del while");
                 loan.setBook(books.get(k));
 
                 //Introducir fecha inicio
