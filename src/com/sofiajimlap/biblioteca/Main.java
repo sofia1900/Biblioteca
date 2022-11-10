@@ -28,7 +28,7 @@ public class Main {
                 //Introducir libro
                 System.out.println("Introduce el id del libro:");  //Completar con un control para que no se introduzca un libro con un id ya utilizado
                 book.setId(scanner.nextInt());
-                String salto = scanner.nextLine();
+                String salto = scanner.nextLine(); //Esto es para que nextLine funcione (no funcionaba porque cogia el salto de linea del anterior nextInt)
                 System.out.println("Introduce el titulo del libro:");
                 book.setTitle(scanner.nextLine());
                 System.out.println("Introduce el ISBN del libro:");
