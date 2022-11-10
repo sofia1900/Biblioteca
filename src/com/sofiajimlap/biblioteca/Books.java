@@ -5,5 +5,5 @@ public interface Books {
     public Integer getIsbn();
 
     public void setTitle(String title);
-    public String setTitle();
+    public String getTitle();
 }

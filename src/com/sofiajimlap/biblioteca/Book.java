@@ -48,7 +48,7 @@ public class Book implements Books {
         }
 
         @Override
-        public String setTitle() {
+        public String getTitle() {
                 return title;
         }
 }
