@@ -28,8 +28,9 @@ public class Main {
                 //Introducir libro
                 System.out.println("Introduce el id del libro:");  //Completar con un control para que no se introduzca un libro con un id ya utilizado
                 book.setId(scanner.nextInt());
+                String salto = scanner.nextLine();
                 System.out.println("Introduce el titulo del libro:");
-                book.setTitle(scanner.next());
+                book.setTitle(scanner.nextLine());
                 System.out.println("Introduce el ISBN del libro:");
                 book.setIsbn(scanner.nextInt());
                 System.out.println("Introduce la fecha de publicacion del libro:");
@@ -46,18 +47,20 @@ public class Main {
                 for (int i = 1; i <= numAuthors; i++) {
                     System.out.println("Introduce el id del autor:");
                     author.setId(scanner.nextInt());
+                    salto = scanner.nextLine();
                     System.out.println("Introduce el nombre del autor:");
-                    author.setName(scanner.next());
+                    author.setName(scanner.nextLine());
                     System.out.println("Introduce los apellidos del autor:");
-                    author.setSurname(scanner.next());
+                    author.setSurname(scanner.nextLine());
                     System.out.println("Introduce la fecha de nacimiento del autor:");
                     //Recoger la fecha como texto y convertirla a Date para almacenarla
                     fechaComoTexto = scanner.next();
                     sdf = new SimpleDateFormat("dd/MM/yyyy");
                     fecha = sdf.parse(fechaComoTexto);
                     author.setBirthday(fecha);
+                    salto = scanner.nextLine();
                     System.out.println("Introduce el lugar de nacimiento del autor:");
-                    author.setPlaceBrith(scanner.next());
+                    author.setPlaceBrith(scanner.nextLine());
 
                     book.addAuthor(author);
                 }
@@ -68,10 +71,11 @@ public class Main {
                 for (int j = 1; j <= numGenres; j++) {
                     System.out.println("Introduce el id del genero:");
                     genre.setId(scanner.nextInt());
+                    salto = scanner.nextLine();
                     System.out.println("Introduce el nombre del genero:");
-                    genre.setName(scanner.next());
+                    genre.setName(scanner.nextLine());
                     System.out.println("Introduce la descripcion del genero:");
-                    genre.setDescription(scanner.next());
+                    genre.setDescription(scanner.nextLine());
 
                     book.addGenre(genre);
                 }
